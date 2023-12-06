@@ -1,0 +1,62 @@
+<div class="container mt-5 p-5 border" style="background-color: aliceblue;">
+
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    <strong>An Error Occured : </strong> {{error}}
+  </div>
+
+<div class="row">
+  <div class="col-md-5 align-self-center" *ngIf="loginMode">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope-at-fill"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Enter Email Address" aria-label="email"
+          aria-describedby="addon-wrapping" formControlName="email">
+        </div>
+      <div class="input-group flex-nowrap my-3">
+        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-lock-fill"></i></span>
+        <input type="password" class="form-control" placeholder="Enter Password" aria-label="pwd"
+          aria-describedby="addon-wrapping" formControlName="password">
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-primary" type="submit">Sign In</button>
+      </div>
+
+      <p class="mb-0 mt-3">Don't have account?<a class="text-primary cursor" (click)="onModeSwitch()">Create One</a></p>
+      <a class="text-primary cursor">Forgot Password</a>
+
+    </form>
+  </div>
+
+  <div class="col-md-5 align-self-center" *ngIf="loginMode == false">
+    <app-signup></app-signup>
+    <p class="mb-0 mt-3">Already have account?<a class="text-primary cursor" (click)="onModeSwitch()">Sign In</a></p>
+    <a class="text-primary cursor">Forgot Password</a>
+
+  </div>
+
+
+
+  <div class="col-md-2 d-flex justify-content-center">
+    <p class="divider-text" style="border: 1px dashed grey">
+    </p>
+    <!-- <span class="or">OR</span> -->
+  </div>
+
+
+
+  <div class="col-md-5 align-self-center">
+<h1 class="text-center">Go with Social!</h1>
+<h4 class="text-center">Get started with your Social accounts</h4>
+
+<div class="d-grid gap-2 mt-3">
+  <button class="btn btn-outline-secondary d-block" type="button">Signin via Google</button>
+  <button class="btn btn-outline-secondary" type="button">Singin via facebook</button>
+</div>
+
+  </div>
+
+
+  </div>
+</div>
